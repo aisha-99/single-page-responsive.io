@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,15 +14,14 @@
 </head>
 <body>
     <header>
-        <nav>
-            <div class="logo">
-                <img src="images/logo1.png" alt="Cat Adoption Logo">
-            </div>
-
+        <div class="logo">
+            <img src="images/logo1.png" alt="Cat Adoption Logo">
+        </div>
+        <nav class="nav">
             <ul>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="#adoption">Adoption</a></li>
                 <li><a href="#cats">Meet the Cats</a></li>
-                <li><a href="#volunteer">Volunteer</a></li>
                 <li><a href="#donations">Donations</a></li>
                 <li><a href="#contact">Contact Us</a></li>
             </ul>
@@ -90,6 +89,9 @@
                 </div>
             </div>
         </div>
+        <div>
+            <a href="#" class="btn">See More Furry Friends</a>
+        </div>
     </section>
 
     <section id="volunteer">
@@ -108,12 +110,32 @@
 
     <section id="contact">
         <h2>Contact Us</h2>
-        <p>Your donation helps us provide food, shelter, and medical care to cats awaiting adoption. Every dollar makes a difference in their lives.</p>
-        <a href="#" class="btn">Reach out to Us</a>
+        <div class="contact">
+            <div class="contact-info">
+                <div>
+                    <h3>Contact Us by:</h3>
+                    <p>Phone: (555) 123-4567</p>
+                    <p>Email: contact@ohmycat.org</p>
+                    <p>Address: 123 Main Street, Catville, ON A1A 1A1</p>
+                </div>
+      
+                <div>
+                    <h3>Office Hours:</h3>
+                    <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
+                    <p>Saturday: 10:00 AM - 3:00 PM</p>
+                    <p>Sunday: Closed</p>
+                </div>
+            </div>
+
+            <div class="map">
+                <img src="images/map.png" alt="Map">
+            </div>
+        </div>
     </section>
+      
 
     <footer>
-        <p>&copy; 2023 - Oh My Cat</p>
+        <p><em>&copy; 2023 - Oh My Cat</em></p>
     </footer>
 </body>
 </html>

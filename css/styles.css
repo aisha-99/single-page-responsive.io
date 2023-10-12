@@ -2,10 +2,13 @@
 body, h1, h2, h3, p, ul, li {
     margin: 0;
     padding: 0;
+}
+
+body, p {
     padding-top: 5px;
 }
 
-/* Global styles */
+/* Variables */
 :root {
     --header-bg-color: #333;
     --header-text-color: #fff;
@@ -17,6 +20,7 @@ body, h1, h2, h3, p, ul, li {
     --cat-info-h2-font-size: 1.2rem;
 }
 
+/* Global styles */
 body {
     font-family: Arial, sans-serif;
     background-color: #f5f5f5;
@@ -36,6 +40,7 @@ header {
     width: 6.25rem;
 }
 
+/* Navigation styles */
 .nav {
     display: flex;
     gap: 1.25rem;
@@ -49,31 +54,33 @@ header {
     cursor: pointer;
 }
 
-.nav.active ul {
+.menu-items {
+    display: flex;
+    flex-direction:row;
+    list-style: none;
+}
+
+.menu-items.active {
     display: flex;
     flex-direction: column;
+    background-color: var(--dark-color);
+    padding: 1.25rem;
+    border-radius: 0.625rem;
 }
 
-.nav ul {
-    list-style: none;
-    display: flex;
-}
-
-.nav li {
+.menu-items li {
     margin-left: 1.25rem;
 }
 
-.nav a {
+.menu-items a {
     color: #fff;
     text-decoration: none;
 }
-
 
 /* Section styles */
 section {
     padding: 4rem;
 }
-
 
 /* Button styles */
 .btn {
@@ -109,7 +116,7 @@ section {
     margin: 1rem 0;
 }
 
-/* MEET THE CATS styles */
+/* Meet the Cats styles */
 #cats {
     text-align: center;
 }
@@ -122,7 +129,7 @@ section {
 }
 
 .cat-item {
-    border: .0625rem solid #ccc;
+    border: 0.0625rem solid #ccc;
     padding: 0.625rem;
     box-shadow: 0.125rem 0.125rem 0.3125rem rgba(0, 0, 0, 0.2);
 }
@@ -145,7 +152,7 @@ section {
     position: relative;
     color: #fff;
     text-align: center;
-    padding: 4rem 0; 
+    padding: 4rem 0;
 }
 
 /* Donation styles */
@@ -157,7 +164,7 @@ section {
     padding: 4rem 0;
 }
 
-/* Contact styles */
+/* Contact Us styles */
 #contact {
     text-align: center;
 }
@@ -180,8 +187,8 @@ section {
 }
 
 .map img {
-    max-width: 100%; 
-    height: auto; 
+    max-width: 100%;
+    height: auto;
 }
 
 /* Footer styles */
@@ -195,8 +202,7 @@ footer {
 
 
 
-
-/* Media Queries-------------------------------------------- */
+/* Media Queries */
 @media (min-width: 641px) {
     body {
         font-size: calc(var(--base-font-size) + 2px);
@@ -213,10 +219,7 @@ footer {
     .cat-info h2 {
         font-size: calc(var(--cat-info-h2-font-size) + 0.2rem);
     }
-    
 }
-
-
 
 
 @media (max-width: 640px) {
@@ -241,30 +244,6 @@ footer {
     }
 
     .menu-items {
-        display: none; /* Initially hide the menu items */
-    }
-    
-    .menu-items.active {
-        display: flex;
-        flex-direction: column;
-        background-color: var(--dark-color);
-        padding: 1.25rem;
-        border-radius: .625rem;
-    }
-
-    .nav ul {
-        display: none;
-        flex-direction: column;
-        background-color: var(--dark-color);
-        padding: 1.25rem;
-        border-radius: .625rem;
-    }
-
-    .nav.active ul {
-        display: block;
-    }
-
-    .nav.active #menu-toggle {
         display: none;
     }
 
@@ -273,9 +252,6 @@ footer {
         gap: 1.25rem;
     }
 }
-
-
-
 
 @media (max-width: 420px) {
     body {
@@ -298,19 +274,7 @@ footer {
         display: block;
     }
 
-    .nav ul {
-        display: none;
-        flex-direction: column;
-        background-color: var(--dark-color);
-        padding: 1.25rem;
-        border-radius: .625rem;
-    }
-
-    .nav.active ul {
-        display: block;
-    }
-
-    .nav.active #menu-toggle {
+    .menu-items {
         display: none;
     }
 

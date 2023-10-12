@@ -1,13 +1,20 @@
-/* Reset default styles */
+/* Default styles */
 body, h1, h2, h3, p, ul, li {
     margin: 0;
     padding: 0;
+    padding-top: 5px;
 }
 
 /* Global styles */
 :root {
     --header-bg-color: #333;
     --header-text-color: #fff;
+    --dark-color: rgb(84, 86, 87);
+    --light-color: rgb(237, 239, 241);
+    --base-font-size: 16px;
+    --hero-h1-font-size: 4rem;
+    --hero-p-font-size: 1.2rem;
+    --cat-info-h2-font-size: 1.2rem;
 }
 
 body {
@@ -29,11 +36,28 @@ header {
     width: 6.25rem;
 }
 
+.nav {
+    display: flex;
+    gap: 1.25rem;
+    list-style-type: none;
+    justify-content: space-between;
+}
+
+#menu-toggle {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    cursor: pointer;
+    position: absolute;
+    right: 1rem;
+}
+
+.nav.active {
+    display: block;
+}
+
 .nav ul {
     list-style: none;
     display: flex;
-    padding: 0;
-    margin: 0;
 }
 
 .nav li {
@@ -48,7 +72,7 @@ header {
 
 /* Section styles */
 section {
-    padding: 2rem;
+    padding: 4rem;
 }
 
 
@@ -71,21 +95,18 @@ section {
 
 /* HERO styles */
 .hero {
-    background: url('../images/hero.png') center/cover no-repeat;
+    background: url('../images/hero.png') center/cover no-repeat fixed;
     position: relative;
     color: #fff;
     text-align: center;
     padding: 4rem;
-    background-attachment: fixed;
 }
 
 .hero h1 {
-    font-size: 4rem;
     font-family: 'Nanum Pen Script', cursive;
 }
 
 .hero p {
-    font-size: 1.2rem;
     margin: 1rem 0;
 }
 
@@ -102,7 +123,7 @@ section {
 }
 
 .cat-item {
-    border: 1px solid #ccc;
+    border: .0625rem solid #ccc;
     padding: 0.625rem;
     box-shadow: 0.125rem 0.125rem 0.3125rem rgba(0, 0, 0, 0.2);
 }
@@ -116,18 +137,16 @@ section {
 }
 
 .cat-info h2 {
-    font-size: 1.2rem;
     margin: 0.5rem 0;
 }
 
 /* Volunteer styles */
 #volunteer {
-    background: url('../images/cat.png') center/cover no-repeat;
+    background: url('../images/cat.png') center/cover no-repeat fixed;
     position: relative;
     color: #fff;
     text-align: center;
-    padding: 4rem 0; /* Remove left and right padding, set top and bottom padding */
-    background-attachment: fixed;
+    padding: 4rem 0; 
 }
 
 /* Donation styles */
@@ -158,7 +177,12 @@ section {
 }
 
 .map {
-    margin-top: 20px;
+    margin-top: 2.1875rem;
+}
+
+.map img {
+    max-width: 100%; 
+    height: auto; 
 }
 
 /* Footer styles */
@@ -174,17 +198,121 @@ footer {
 
 
 /* Media Queries-------------------------------------------- */
-@media (min-width: 620px) {
+@media (min-width: 641px) {
+    body {
+        font-size: calc(var(--base-font-size) + 2px);
+    }
+
+    .hero h1 {
+        font-size: calc(var(--hero-h1-font-size) + 1rem);
+    }
+
+    .hero p {
+        font-size: calc(var(--hero-p-font-size) + 0.2rem);
+    }
+
+    .cat-info h2 {
+        font-size: calc(var(--cat-info-h2-font-size) + 0.2rem);
+    }
+    
 }
 
 
 
 
-@media (max-width: 620px) {
+@media (max-width: 640px) {
+    body {
+        font-size: calc(var(--base-font-size) - 2px);
+    }
+
+    .hero h1 {
+        font-size: calc(var(--hero-h1-font-size) - 0.5rem);
+    }
+
+    .hero p {
+        font-size: calc(var(--hero-p-font-size) - 0.2rem);
+    }
+
+    .cat-info h2 {
+        font-size: calc(var(--cat-info-h2-font-size) - 0.2rem);
+    }
+
+    #menu-toggle {
+        display: block;
+    }
+
+    .nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: var(--dark-color);
+        padding: 1.25rem;
+        border-radius: .625rem;
+    }
+
+    .nav.active ul {
+        display: block;
+    }
+
+    .nav.active #menu-toggle {
+        display: none;
+    }
+
+    .cat-gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+    }
 }
 
 
 
 
-@media (max-width: 320px) {
+@media (max-width: 420px) {
+    body {
+        font-size: calc(var(--base-font-size) - 4px);
+    }
+
+    .hero h1 {
+        font-size: calc(var(--hero-h1-font-size) - 1rem);
+    }
+
+    .hero p {
+        font-size: calc(var(--hero-p-font-size) - 0.4rem);
+    }
+
+    .cat-info h2 {
+        font-size: calc(var(--cat-info-h2-font-size) - 0.4rem);
+    }
+
+    #menu-toggle {
+        display: block;
+    }
+
+    .nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: var(--dark-color);
+        padding: 1.25rem;
+        border-radius: .625rem;
+    }
+
+    .nav.active ul {
+        display: block;
+    }
+
+    .nav.active #menu-toggle {
+        display: none;
+    }
+
+    .cat-gallery, .contact-info {
+        display: block;
+        grid-template-columns: 1fr;
+    }
+
+    .cat-item {
+        margin-bottom: 1.25rem;
+    }
+
+    .contact-us-info {
+        padding: 0.625rem;
+    }
 }
